@@ -13,7 +13,7 @@ def program_instructions():
 	user_input = input("  >")
 	return user_input
 
-	
+#Work in progress
 def make_dir():
 	current_directory = os.getcwd()
 	final_directory = os.path.join(current_directory, r'Data Files')
@@ -84,7 +84,6 @@ def find_date_in_file():
 
 #CREATE the results file and file it with processed data
 def create_results_file():
-	
 	date = name_dated_file()
 	results_file = open("results_" + date + ".txt", "w+")
 	for i in results:
@@ -111,63 +110,10 @@ def creat_a_dates_file():
 
 
 
-'''
 find_line_in_file()
 find_date_in_file()
 
 create_results_file()
 create_a_count_file()
 creat_a_dates_file()
-'''
-make_dir()
-
-'''This was my old way of solving this problem. It was opening the file 30+ times. Wrong.
-def find_date_in_file():
-	results = []
-	count = 0
-	for z in range(1,13):
-		if z < 10:
-			z = "0" + str(z)
-		else:
-			z = str(z)
-		
-		for x in range(1,32):
-			textfile = open(global_file_name, 'r')
-		#IF STATEMENT to convern iterator to string to 
-			if x < 10:
-				x = "0" + str(x)
-			else:
-				x = str(x)
-			keyword = "2017/"+ z +"/"+ x
-		
-			for line in textfile:	
-				if keyword in line:
-					print("Key found!")
-					count +=1
-				
-			results.append(keyword + ": " + str(count))
-			count = 0
-	textfile.close()
-	
-	
-	for i in results:
-		print(i)
-
-'''
-
-
-
-'''Here is a way to use regex for the matching print(find_date_in_file_re(global_file_name))
-import re
-
-def find_date_in_file_re(filename):
-    """Return list of dates found in given file."""
-    with open(filename, 'r') as f:
-        contents = f.read()
-    regex = re.compile(r'2017/\d\d?/\d\d?')
-    return regex.findall(contents)	
-	
-'''
-#/checkin: "UserAuthenticate"/g
-# 0:: [12447] [2017/07/06 09:08:21.653] <160.36.119.217> checkin: "UserAuthenticate"
 
